@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane prefHeight="700.0" prefWidth="360.0" style="-fx-background-color: #f3f4f6;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TicketController">
+
+   <top>
+      <VBox style="-fx-background-color: white; -fx-padding: 20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 0, 2, 5, 0);">
+          <Label text="Tiket Saya" textFill="#1e3a8a">
+              <font><Font name="System Bold" size="24.0"/></font>
+          </Label>
+          <Label text="Informasi Perjalanan Anda" textFill="GRAY" style="-fx-font-size: 12px;"/>
+      </VBox>
+   </top>
+
+   <center>
+      <ListView fx:id="ticketListView" style="-fx-background-color: transparent; -fx-padding: 10;"/>
+   </center>
+
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="80.0" spacing="40.0" style="-fx-background-color: white; -fx-background-radius: 20 20 0 0; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, -5);">
+         
+         <VBox alignment="CENTER" onMouseClicked="#handleMenuBeranda" spacing="2" style="-fx-cursor: hand;">
+            <Text fill="gray" style="-fx-font-size: 24px;" text="🏠" />
+            <Text fill="gray" style="-fx-font-size: 10px;" text="Beranda" />
+         </VBox>
+
+         <VBox alignment="CENTER" spacing="2" style="-fx-cursor: hand;">
+            <Text fill="#1e3a8a" style="-fx-font-size: 24px;" text="🎫" />
+            <Text fill="#1e3a8a" style="-fx-font-size: 10px; -fx-font-weight: bold;" text="Tiket Saya" />
+         </VBox>
+
+         <VBox alignment="CENTER" onMouseClicked="#handleMenuProfil" spacing="2" style="-fx-cursor: hand;">
+            <Text fill="gray" style="-fx-font-size: 24px;" text="👤" />
+            <Text fill="gray" style="-fx-font-size: 10px;" text="Profil" />
+         </VBox>
+
+      </HBox>
+   </bottom>
+
+</BorderPane>
