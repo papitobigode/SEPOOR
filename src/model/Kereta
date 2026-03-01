@@ -1,0 +1,132 @@
+package model;
+
+public class Kereta {
+    
+}
+
+package model;
+
+public class Station {
+    private String name;
+    private String city;
+
+    public Station(String name, String city) {
+        this.name = name;
+        this.city = city;
+    }
+
+    public String getName() { return name; }
+    public String getCity() { return city; }
+
+    // Override toString agar kalau diprint hasilnya rapi
+    @Override
+    public String toString() {
+        return name + " - " + city;
+    }
+}
+
+package model;
+
+public class Ticket {
+    private String trainName;
+    private String route;     // JKT - SLO
+    private String date;
+    private String seat;
+    private String status;    // "AKTIF" atau "SELESAI"
+
+    public Ticket(String trainName, String route, String date, String seat, String status) {
+        this.trainName = trainName;
+        this.route = route;
+        this.date = date;
+        this.seat = seat;
+        this.status = status;
+    }
+
+    // Getter
+    public String getTrainName() { return trainName; }
+    public String getRoute() { return route; }
+    public String getDate() { return date; }
+    public String getSeat() { return seat; }
+    public String getStatus() { return status; }
+}
+package model;
+
+public class Train {
+    private String name;
+    private String departureStation; // misal: JKT
+    private String arrivalStation;   // misal: SLO
+    private String price;
+    private String type; // Ekonomi, Eksekutif
+
+    public Train(String name, String dep, String arr, String price, String type) {
+        this.name = name;
+        this.departureStation = dep;
+        this.arrivalStation = arr;
+        this.price = price;
+        this.type = type;
+    }
+
+    // Getters
+    public String getName() { return name; }
+    public String getDepartureStation() { return departureStation; }
+    public String getArrivalStation() { return arrivalStation; }
+    public String getPrice() { return price; }
+    public String getType() { return type; }
+}
+
+package model;
+
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
+public class User {
+    // 1. Property yang sudah ada
+    private final StringProperty nama = new SimpleStringProperty();
+    private final StringProperty username = new SimpleStringProperty();
+    private final StringProperty password = new SimpleStringProperty();
+    
+    // --- [BARU] Property untuk menyimpan lokasi gambar ---
+    private final StringProperty imagePath = new SimpleStringProperty();
+
+    // 2. Constructor
+    public User(String nama, String username, String password) {
+        this.nama.set(nama);
+        this.username.set(username);
+        this.password.set(password);
+        
+        // --- [BARU] Default gambar kosong (null) saat user baru dibuat ---
+        this.imagePath.set(null); 
+    }
+
+    // --- GETTER & SETTER LAMA (NAMA, USERNAME, PASSWORD) ---
+    
+    // A. Untuk NAMA
+    public String getNama() { return nama.get(); }
+    public void setNama(String value) { this.nama.set(value); }
+    public StringProperty namaProperty() { return nama; }
+
+    // B. Untuk USERNAME
+    public String getUsername() { return username.get(); }
+    public void setUsername(String value) { this.username.set(value); }
+    public StringProperty usernameProperty() { return username; }
+
+    // C. Untuk PASSWORD
+    public String getPassword() { return password.get(); }
+    public void setPassword(String value) { this.password.set(value); }
+    public StringProperty passwordProperty() { return password; }
+
+    // --- [BARU] GETTER & SETTER UNTUK IMAGE PATH ---
+    // Ini wajib ada supaya ProfileController bisa simpan, dan Dashboard bisa baca.
+
+    public String getImagePath() {
+        return imagePath.get(); // Mengambil string URL gambar
+    }
+
+    public void setImagePath(String value) {
+        this.imagePath.set(value); // Menyimpan URL gambar baru
+    }
+
+    public StringProperty imagePathProperty() {
+        return imagePath; // Untuk binding (jika perlu)
+    }
+}
