@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane prefHeight="700.0" prefWidth="360.0" style="-fx-background-color: #f3f4f6;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PaymentController">
+
+   <top>
+      <VBox style="-fx-background-color: #1e3a8a; -fx-padding: 20;">
+          <HBox alignment="CENTER_LEFT" spacing="10">
+              <Button text="←" onAction="#handleBack" textFill="WHITE" style="-fx-background-color: transparent; -fx-font-size: 20px; -fx-cursor: hand;"/>
+              <Label text="Ringkasan Pesanan" textFill="WHITE">
+                  <font><Font name="System Bold" size="18.0"/></font>
+              </Label>
+          </HBox>
+      </VBox>
+   </top>
+
+   <center>
+      <VBox spacing="15" alignment="TOP_CENTER" style="-fx-padding: 20;">
+          
+          <VBox style="-fx-background-color: white; -fx-background-radius: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);">
+              <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+              
+              <HBox alignment="CENTER_LEFT" spacing="10">
+                  <Text text="🚆" style="-fx-font-size: 24px;"/>
+                  <VBox>
+                      <Label fx:id="trainNameLabel" text="ARGO LAWU" style="-fx-font-weight: bold; -fx-font-size: 16px;"/>
+                      <Label fx:id="trainTypeLabel" text="Eksekutif" textFill="GRAY" style="-fx-font-size: 12px;"/>
+                  </VBox>
+              </HBox>
+
+              <Separator style="-fx-padding: 15 0 15 0;"/>
+
+              <VBox spacing="15">
+                  <HBox>
+                      <Label text="Tanggal" textFill="GRAY" prefWidth="100"/>
+                      <Label fx:id="dateLabel" text="Sabtu, 10 Juli 2025" style="-fx-font-weight: bold;"/>
+                  </HBox>
+                  
+                  <HBox>
+                      <Label text="Rute" textFill="GRAY" prefWidth="100"/>
+                      <Label fx:id="routeLabel" text="GMR ➝ SLO" style="-fx-font-weight: bold;"/>
+                  </HBox>
+
+                  <HBox>
+                      <Label text="Kursi" textFill="GRAY" prefWidth="100"/>
+                      <Label fx:id="seatLabel" text="EKS-1 / 5A" style="-fx-font-weight: bold; -fx-text-fill: #1e3a8a;"/>
+                  </HBox>
+              </VBox>
+
+              <Separator style="-fx-border-style: dashed; -fx-border-width: 1; -fx-border-color: #e5e7eb; -fx-background-color: transparent; -fx-padding: 15 0 15 0;"/>
+
+              <HBox alignment="CENTER_RIGHT">
+                  <VBox alignment="CENTER_RIGHT">
+                      <Label text="Total Pembayaran" textFill="GRAY" style="-fx-font-size: 12px;"/>
+                      <Label fx:id="priceLabel" text="Rp 300.000" textFill="#ef4444">
+                          <font><Font name="System Bold" size="20.0"/></font>
+                      </Label>
+                  </VBox>
+              </HBox>
+          </VBox>
+
+          <VBox spacing="10">
+              <Label text="Metode Pembayaran" style="-fx-font-weight: bold;"/>
+              <HBox style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 10; -fx-border-color: #0ea5e9; -fx-border-radius: 10; -fx-border-width: 2;">
+                  <Label text="QRIS (Scan Barcode)" style="-fx-font-weight: bold;"/>
+                  
+                  <Region HBox.hgrow="ALWAYS"/>
+                  
+                  <Text text="✅"/>
+              </HBox>
+          </VBox>
+
+      </VBox>
+   </center>
+
+   <bottom>
+       <VBox style="-fx-background-color: white; -fx-padding: 20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 0, -5, 10, 0);">
+           <Button text="Bayar Sekarang" onAction="#handlePay" maxWidth="Infinity" prefHeight="50" 
+                   style="-fx-background-color: #0ea5e9; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16px; -fx-background-radius: 10; -fx-cursor: hand;"/>
+       </VBox>
+   </bottom>
+
+</BorderPane>
